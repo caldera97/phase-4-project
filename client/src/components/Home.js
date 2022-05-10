@@ -5,9 +5,9 @@ import CreateUserForm from "./CreateUserForm"
 function Home() {
   
   return (
-    <div>
-      <LoginForm />
-      <CreateUserForm />
+    <div id='home'>
+      <button>Login</button>
+      <button>Sign Up</button>
     </div>
   );
 }

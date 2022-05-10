@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import CommentForm from "./CommentForm"
 
-function Comments() {
+function Comments({post}) {  
   
   return (
     <div>
+      <h5>{post.comments}</h5>
       <CommentForm />
     </div>
   );

@@ -5,6 +5,10 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_post_not_found
         render json: post.comments
     end
 
+    def index 
+        render json: Post.all
+    end
+
     def show
         post = find_post
         render json: post
