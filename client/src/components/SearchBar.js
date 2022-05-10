@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 
 function SearchBar() {
   
   return (
     <div>
-      <h1>SearchBar</h1>
     </div>
   );
 }

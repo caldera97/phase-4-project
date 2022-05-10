@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import Posts from "./Posts"
 
 function Communities() {
   
   return (
     <div>
-      <h1>Communities</h1>
+      <Posts />
     </div>
   );
 }

@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import LoginForm from "./LoginForm.js"
 import CreateUserForm from "./CreateUserForm"
 
@@ -7,7 +6,8 @@ function Home() {
   
   return (
     <div>
-      <h1>Home</h1>
+      <LoginForm />
+      <CreateUserForm />
     </div>
   );
 }

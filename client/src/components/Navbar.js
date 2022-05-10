@@ -1,12 +1,18 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import SearchBar from "./SearchBar"
 
 function User() {
   
   return (
-    <div>
-      <h1>Navbar</h1>
+    <div id="navbar">
+      <select id="select-community">
+        <option value='1'>Community 1</option>
+        <option value='2'>Community 2</option>
+      </select>
+      <button className="navbutton">Home</button>
+      <h1>Really Cool Project Name</h1>
+      <button className="navbutton">My Posts</button>
+      {/* <SearchBar /> */}
     </div>
   );
 }
