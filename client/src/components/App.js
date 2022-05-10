@@ -10,12 +10,12 @@ function App() {
   const [posts, setPosts] = useState([]);
 
   function fetchPosts() {
-    fetch ('http://localhost:3000/posts')
+    fetch (`http://localhost:3000/communities/${communityFilter}`)
     .then(resp => resp.json())
     .then(postData => setPosts(postData))
 }
 
-useEffect(fetchPosts, []);
+useEffect(fetchPosts, [communityFilter]);
 
   return (
     <>

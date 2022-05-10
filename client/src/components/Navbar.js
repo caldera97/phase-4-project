@@ -4,7 +4,7 @@ import React from "react";
 function User({setCommunityFilter}) {
 
   function filterPosts(e) {
-    setCommunityFilter(e.target.value)
+    setCommunityFilter(parseInt(e.target.value))
   }
   
   return (
