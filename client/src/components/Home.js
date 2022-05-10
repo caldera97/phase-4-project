@@ -8,6 +8,8 @@ function Home() {
     <div id='home'>
       <button>Login</button>
       <button>Sign Up</button>
+      {/* <LoginForm id='login-form' />
+      <CreateUserForm id='create-user-form' /> */}
     </div>
   );
 }

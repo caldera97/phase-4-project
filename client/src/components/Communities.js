@@ -1,26 +1,28 @@
-import React, {useEffect, useState} from "react";
+import React, {useState, useEffect} from "react";
 import Posts from "./Posts"
 
-function Communities() {
-  const [posts, setPosts] = useState([]);
+function Communities({communityFilter, posts, setPosts}) {
 
-  function fetchPosts() {
-    fetch ('http://localhost:3000/posts')
+  const [comments, setComments] = useState([]);
+
+  function fetchComments() {
+    fetch ('http://localhost:3000/comments')
     .then(resp => resp.json())
-    .then(postData => setPosts(postData))
+    .then(commentData => setComments(commentData))
 }
 
-useEffect(fetchPosts, []);
-
-const renderPosts = posts.map((post) => (
-  <Posts key={post.id} post={post}/>
+useEffect(fetchComments, []);
+  
+const renderPosts = posts
+  .filter((post) => post.community.id === communityFilter)
+  .map((post) => (<Posts key={post.id} post={post} comments={comments} setComments={setComments}/>
 ));
 
   return (
-    <div>
+    <div id="communities">
       {renderPosts}
     </div>
   );
 }
 
-export default Communities;
+export default Communities; 

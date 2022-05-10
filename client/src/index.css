@@ -21,3 +21,27 @@ body {
   display: flex;
   justify-content: space-evenly;
 }
+
+#create-user-form {
+  visibility: hidden;
+  max-width: 0;
+}
+
+#login-form {
+  visibility: hidden;
+  max-width: 0;
+}
+
+#comment-content {
+  font-size: small;
+}
+
+#post-content {
+  font-size: larger;
+}
+
+#communities {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
