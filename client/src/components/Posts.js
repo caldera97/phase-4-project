@@ -15,32 +15,28 @@ function Posts({login, post}) {
     .then(commentData => setComments(commentData))
 }
 
-  useEffect(fetchComments);  
+  useEffect(fetchComments, []);  
 
   const renderComments = comments
     .map((comment) => (<Comments key={comment.id} post={post} comment={comment}/>
   ));
 
   function handleCommentSubmit(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (Object.keys(login) === 0) {
-      alert("You must be logged in to leave a comment")
-    } else {
-      fetch("http://localhost:3000/comments", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          "content": (e.target.elements['comment-input'].value),
-          "user_id": login.id,
-          "post_id": post.id
-      }),
-      })
-        .then(resp => resp.json())
-        .then(newComment => console.log(newComment));
-    };
+  fetch("http://localhost:3000/comments", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      "content": e.target.elements['comment-input'].value,
+      "user_id": login.id,
+      "post_id": post.id
+    }),
+  })
+    .then(resp => resp.json())
+    .then(newComment => setComments((prevState) => [... prevState, newComment]));
 
   }
   
