@@ -2,14 +2,14 @@ import React from "react";
 import LoginForm from "./LoginForm.js"
 import CreateUserForm from "./CreateUserForm"
 
-function Home() {
+function Home({setLogin}) {
   
   return (
     <div id='home'>
       <button>Login</button>
       <button>Sign Up</button>
-      {/* <LoginForm id='login-form' />
-      <CreateUserForm id='create-user-form' /> */}
+      <LoginForm id='login-form' setLogin={setLogin}/>
+      <CreateUserForm id='create-user-form' setLogin={setLogin}/>
     </div>
   );
 }
