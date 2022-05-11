@@ -16,7 +16,7 @@ function App() {
     .then(postData => setPosts(postData))
   }
   useEffect(() => {
-    fetch("http://localhost:3000/me").then((response) => {
+    fetch("/me").then((response) => {
       if (response.ok) {
         response.json().then((user) => setLogin(user));
       }
