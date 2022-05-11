@@ -14,7 +14,6 @@ function Communities({communityFilter, posts, setPosts}) {
 useEffect(fetchComments, []);
   
 const renderPosts = posts
-  .filter((post) => post.community.id === communityFilter)
   .map((post) => (<Posts key={post.id} post={post} comments={comments} setComments={setComments}/>
 ));
 

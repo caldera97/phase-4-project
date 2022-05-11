@@ -15,7 +15,7 @@ function User({setCommunityFilter}) {
         <option value='3'>Community 3</option>
         <option value='4'>Community 4</option>
       </select>
-      <h1>Really Cool Project Name</h1>
+      <h1 id="title">Really Cool Project Name</h1>
       <button className="navbutton">My Posts</button>
       {/* <SearchBar /> */}
     </div>
