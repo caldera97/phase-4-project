@@ -6,7 +6,7 @@ function LoginForm({ setLogin }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:3000/login", {
+    fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,21 +21,28 @@ function LoginForm({ setLogin }) {
       .then((user) => setLogin(user));
   }
 
-  return (
+  function logout() {
+    fetch('/logout', { method: 'DELETE' })
+    .then(setLogin(null))
+  }
+  return (<>
     <form onSubmit={handleSubmit}>
       <input
         type="text"
         value={username}
+        placeholder="username"
         onChange={(e) => setUsername(e.target.value)}
       />
       <input
         type="text"
         value={password}
+        placeholder="password"
         onChange={(e) => setPassword(e.target.value)}
       />
       <button type="submit">Login</button>
     </form>
-  );
+    <button onClick={logout}>Logout</button>
+    </>);
 }
 
 export default LoginForm;
