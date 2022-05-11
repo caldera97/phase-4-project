@@ -1,26 +1,61 @@
 import React, {useState, useEffect} from "react";
 import Comments from "./Comments"
 
-function Posts({post, comments}) {
+function Posts({login, post}) {
   const [style, setStyle] = useState("false")
+  const [comments, setComments] = useState([]);
 
   const toggleComments = () => {
-    console.log("you just clicked");
     setStyle(!style);
   }
-  
+
+  function fetchComments() {
+    fetch (`http://localhost:3000//posts/${post.id}/comments`)
+    .then(resp => resp.json())
+    .then(commentData => setComments(commentData))
+}
+
+  useEffect(fetchComments);  
+
   const renderComments = comments
-    .filter((comment) => comment.post.id === post.id)
     .map((comment) => (<Comments key={comment.id} post={post} comment={comment}/>
   ));
+
+  function handleCommentSubmit(e) {
+    e.preventDefault();
+
+    if (Object.keys(login) === 0) {
+      alert("You must be logged in to leave a comment")
+    } else {
+      fetch("http://localhost:3000/comments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          "content": (e.target.elements['comment-input'].value),
+          "user_id": login.id,
+          "post_id": post.id
+      }),
+      })
+        .then(resp => resp.json())
+        .then(newComment => console.log(newComment));
+    };
+
+  }
   
   return (
     <div id="posts">
       <p id='post-content'>{post.content}</p>
+      <p id='post-author'>- {post.user.username}</p>
       <button id="comments-button" onClick={toggleComments}>Comments</button>
-      <div className={style ? "comments-off" : "comments-on"}>
-      {renderComments}
+      <div className={style ? "show-off" : "show-on"}>
+        {renderComments}
       </div>
+      <form onSubmit={handleCommentSubmit}>
+        <input type='text' id='comment-input' className={style ? "show-off" : "show-on"} placeholder='Leave a comment!'/>
+        <button type='submit' className={style ? "show-off" : "show-on"} id='submit-comment'>Post</button>
+      </form>
     </div>
   );
 }

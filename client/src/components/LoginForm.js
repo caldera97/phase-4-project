@@ -4,7 +4,6 @@ function LoginForm({ setLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-
   function handleSubmit(e) {
     e.preventDefault();
     fetch("http://localhost:3000/login", {

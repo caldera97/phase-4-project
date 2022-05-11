@@ -6,8 +6,6 @@ function Home({setLogin}) {
   
   return (
     <div id='home'>
-      <button>Login</button>
-      <button>Sign Up</button>
       <LoginForm id='login-form' setLogin={setLogin}/>
       <CreateUserForm id='create-user-form' setLogin={setLogin}/>
     </div>

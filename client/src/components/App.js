@@ -30,7 +30,7 @@ function App() {
       <Navbar communityFilter={communityFilter} setCommunityFilter={setCommunityFilter}/>
       <Home setLogin={setLogin}/>
       <User />
-      <Communities communityFilter={communityFilter} posts={posts} setPosts={setPosts}/>
+      <Communities communityFilter={communityFilter} posts={posts} setPosts={setPosts} login={login}/>
       <PostForm />
     </>
   );
