@@ -5,12 +5,12 @@ import User from "./User";
 import Communities from "./Communities";
 import PostForm from "./PostForm";
 import AllPosts from "./AllPosts";
-import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
+import {Routes,Route,Link} from "react-router-dom";
 
 function App() {
   const [communityFilter, setCommunityFilter] = useState(1);
   const [posts, setPosts] = useState([]);
-  const [login, setLogin] = useState({})
+  const [login, setLogin] = useState(null)
   const [allPosts, setAllPosts] = useState([])
 
   function fetchPosts() {
@@ -34,16 +34,16 @@ function App() {
   useEffect(fetchPosts, [communityFilter]);
 
   return (
-    <Router>
-      <Navbar communityFilter={communityFilter} setCommunityFilter={setCommunityFilter}/>
-      <Home setLogin={setLogin} login={login}/>
-      <User />
-      <Route path="/home" exact>
-        <AllPosts allPosts={allPosts} login={login}/>
-      </Route>
-      {/* <Communities communityFilter={communityFilter} posts={posts} setPosts={setPosts} login={login}/> */}
-      <PostForm />
-    </Router>
+    <div>
+        <Navbar communityFilter={communityFilter} setCommunityFilter={setCommunityFilter}/>
+        <Home setLogin={setLogin} login={login}/>
+        <User />
+        <Routes>
+          <Route exact path="/home" element={<AllPosts allPosts={allPosts} login={login}/>}/>
+        </Routes>
+        <Communities communityFilter={communityFilter} posts={posts} setPosts={setPosts} login={login}/>
+        <PostForm />
+    </div>
   );
 }
 
