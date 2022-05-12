@@ -8,7 +8,7 @@ import PostForm from "./PostForm";
 function App() {
   const [communityFilter, setCommunityFilter] = useState(1);
   const [posts, setPosts] = useState([]);
-  const [login, setLogin] = useState({})
+  const [login, setLogin] = useState(null)
 
   function fetchPosts() {
     fetch (`http://localhost:3000/communities/${communityFilter}`)

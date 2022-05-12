@@ -17,7 +17,7 @@ function Navbar({setCommunityFilter, login}) {
       </select>
       <h1 id="title">Really Cool Project Name</h1>
       <span>
-        <p id='username'>👤 {(login.id === undefined) ? null : login.username}</p>
+        <p id='username'>👤 {login ? login.username : null}</p>
         <button className="navbutton">My Profile</button>
       </span>
       {/* <SearchBar /> */}

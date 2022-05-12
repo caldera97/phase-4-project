@@ -35,7 +35,7 @@ function User({login}) {
 
   return (
     <div id='user-info'>
-      <h2>{login.username}</h2>
+      <h2>{login ? login.username : null}</h2>
       <h3 className={(userAbout === null) ? "show-off" : "show-on"}>{userAbout}</h3>
       <button>Edit About</button>
       <form onSubmit={updateAbout} className={(userAbout === null) ? "show-on" : "show-off"} >
