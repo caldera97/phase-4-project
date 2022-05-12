@@ -1,7 +1,7 @@
 import React from "react";
 // import SearchBar from "./SearchBar"
 
-function User({setCommunityFilter, login}) {
+function Navbar({setCommunityFilter, login}) {
 
   function filterPosts(e) {
     setCommunityFilter(parseInt(e.target.value))
@@ -25,4 +25,4 @@ function User({setCommunityFilter, login}) {
   );
 }
 
-export default User;
+export default Navbar;
