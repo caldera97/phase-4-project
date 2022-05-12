@@ -6,6 +6,7 @@ function Communities({login, communityFilter, posts, setPosts}) {
   const renderPosts = posts
     .map((post) => (<Posts key={post.id} post={post} login={login}/>
   ));
+  
 
   return (
     <div id="communities">

@@ -15,7 +15,7 @@ function Posts({login, post}) {
     .then(commentData => setComments(commentData))
 }
 
-  useEffect(fetchComments, []);  
+  useEffect(fetchComments, []); 
 
   const renderComments = comments
     .map((comment) => (<Comments key={comment.id} post={post} comment={comment}/>
@@ -23,34 +23,38 @@ function Posts({login, post}) {
 
   function handleCommentSubmit(e) {
   e.preventDefault();
-
-  fetch("http://localhost:3000/comments", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      "content": e.target.elements['comment-input'].value,
-      "user_id": login.id,
-      "post_id": post.id
-    }),
-  })
-    .then(resp => resp.json())
-    .then(newComment => setComments((prevState) => [... prevState, newComment]));
-
+  if (login.id === undefined) {
+    alert("You must be logged in to leave a comment!")
+  } else {
+    fetch("http://localhost:3000/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "content": e.target.elements['comment-input'].value,
+        "user_id": login.id,
+        "post_id": post.id
+      }),
+    })
+      .then(resp => resp.json())
+      .then(newComment => setComments((prevState) => [...prevState, newComment]));
   }
-  
+    e.target.reset();
+  }
+
+
   return (
     <div id="posts">
       <p id='post-content'>{post.content}</p>
       <p id='post-author'>- {post.user.username}</p>
-      <button id="comments-button" onClick={toggleComments}>Comments</button>
+      <button id="comments-button" onClick={toggleComments}>Show/Hide Comments</button>
       <div className={style ? "show-off" : "show-on"}>
         {renderComments}
       </div>
       <form onSubmit={handleCommentSubmit}>
-        <input type='text' id='comment-input' className={style ? "show-off" : "show-on"} placeholder='Leave a comment!'/>
-        <button type='submit' className={style ? "show-off" : "show-on"} id='submit-comment'>Post</button>
+        <input name='comment-input' type='text' className={style ? "show-off" : "comment-field-show"} placeholder='Leave a comment!'/>
+        <button type='submit' className={style ? "show-off" : "comment-button-show"} id='submit-comment'>Post</button>
       </form>
     </div>
   );

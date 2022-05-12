@@ -1,7 +1,7 @@
 body {
   margin: 0;
   background-color: white;
-  background: url(https://images.unsplash.com/photo-1651301872622-c60c76388485?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80) no-repeat center center fixed;
+  background: url(https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80) no-repeat center center fixed;
   -webkit-background-size: cover;
   font-family: 'Montserrat', sans-serif;
   font-weight: bolder;
@@ -13,6 +13,11 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+#username {
+  text-align: center;
+  color: white;
 }
 
 /* .navbutton {
@@ -56,12 +61,9 @@ button, select {
   padding: 5px;
 }
 
-#submit-comment {
-  color: black;
-  border-radius: 5px;
-  border: none;
-  font-family: 'Montserrat', sans-serif;
-  padding: 5px;
+#comments-button {
+  font-size: x-small;
+  color:rgb(20, 20, 20)
 }
 
 #comment-input {
@@ -101,9 +103,62 @@ button, select {
   color: white;
 }
 
+.comment-button-show {
+  color: black;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  padding: 5px;
+}
+
+.comment-field-show {
+  color: black;
+}
+
 #comment-input {
   width: 80%;
   height: 2em;
   line-height: 1em;
   color: rgb(20, 20, 20);
+}
+
+#post-author {
+  color: white;
+}
+
+#post-form {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+#post-buttons {
+  height: 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#post-input, #new-post-community, #submit-post {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#post-input {
+  width: 500px;
+  margin-bottom: 10px;
+  height: 5em;
+  line-height: 1em;
+  word-break: break-word;
+}
+
+#select-community-text {
+  font-size: smaller;
+  color: white;
+}
+
+#user-info {
+  color: white;
+  text-align: center;
 }

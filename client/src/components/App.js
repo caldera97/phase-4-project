@@ -15,6 +15,9 @@ function App() {
     .then(resp => resp.json())
     .then(postData => setPosts(postData))
   }
+
+  useEffect(fetchPosts, [communityFilter]);
+
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
@@ -23,15 +26,13 @@ function App() {
     });
   }, []);
 
-  useEffect(fetchPosts, [communityFilter]);
-
   return (
     <>
-      <Navbar communityFilter={communityFilter} setCommunityFilter={setCommunityFilter}/>
+      <Navbar communityFilter={communityFilter} setCommunityFilter={setCommunityFilter} login={login}/>
       <Home setLogin={setLogin}/>
-      <User />
+      <User login={login} />
       <Communities communityFilter={communityFilter} posts={posts} setPosts={setPosts} login={login}/>
-      <PostForm />
+      <PostForm posts={posts} setPosts={setPosts} login={login}/>
     </>
   );
 }

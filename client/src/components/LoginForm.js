@@ -19,11 +19,12 @@ function LoginForm({ setLogin }) {
     })
       .then((r) => r.json())
       .then((user) => setLogin(user));
+    
   }
 
   function logout() {
     fetch('/logout', { method: 'DELETE' })
-    .then(setLogin(null))
+    .then(setLogin({}))
   }
   return (<>
     <form onSubmit={handleSubmit}>
@@ -34,7 +35,7 @@ function LoginForm({ setLogin }) {
         onChange={(e) => setUsername(e.target.value)}
       />
       <input
-        type="text"
+        type="password"
         value={password}
         placeholder="password"
         onChange={(e) => setPassword(e.target.value)}

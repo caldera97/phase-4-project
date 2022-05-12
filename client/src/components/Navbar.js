@@ -1,7 +1,7 @@
 import React from "react";
 // import SearchBar from "./SearchBar"
 
-function User({setCommunityFilter}) {
+function User({setCommunityFilter, login}) {
 
   function filterPosts(e) {
     setCommunityFilter(parseInt(e.target.value))
@@ -16,7 +16,10 @@ function User({setCommunityFilter}) {
         <option value='4'>Community 4</option>
       </select>
       <h1 id="title">Really Cool Project Name</h1>
-      <button className="navbutton">My Posts</button>
+      <span>
+        <p id='username'>👤 {(login.id === undefined) ? null : login.username}</p>
+        <button className="navbutton">My Profile</button>
+      </span>
       {/* <SearchBar /> */}
     </div>
   );

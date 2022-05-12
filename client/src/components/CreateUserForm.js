@@ -39,13 +39,13 @@ function CreateUserForm({setLogin}) {
       onChange={(e) => setUsername(e.target.value)}
     />
     <input
-      type="text"
+      type="password"
       value={password}
       placeholder="password"
       onChange={(e) => setPassword(e.target.value)}
     />
     <input
-      type="text"
+      type="password"
       value={passwordConfirm}
       placeholder="confirm password"
       onChange={(e) => setPasswordConfirm(e.target.value)}
