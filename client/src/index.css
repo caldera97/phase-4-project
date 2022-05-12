@@ -20,9 +20,10 @@ body {
   color: white;
 }
 
-/* .navbutton {
-  height: 50%;
-} */
+#nav-buttons, #main-heading, #user-buttons {
+  margins-left: 0px;
+  margins-right: 0px;
+}
 
 #home {
   display: flex;

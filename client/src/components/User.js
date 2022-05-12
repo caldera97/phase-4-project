@@ -3,12 +3,10 @@ import UserPost from "./UserPost";
 
 function User({login}) {
   const [userPosts, setUserPosts] = useState([])
-  const [userAbout, setUserAbout] = useState({})
-
-  // let placeHolder = login.about
+  const [userAbout, setUserAbout] = useState([])
 
   function fetchUserPosts() {
-    fetch(`/users/${login.id}/posts`)
+    fetch(`http://localhost:3000/users/${login.id}/posts`)
     .then(response => response.json())
     .then(userPosts => setUserPosts(userPosts));
   }
@@ -41,10 +39,11 @@ function User({login}) {
       <h2>{login ? "About me:" : null}</h2>
       <h3>{login ? login.about : null}</h3>
       <button>Edit About</button>
-      <form onSubmit={updateAbout} className={login ? "show-off" : "show-on"} >
-        <textarea max-length='400' id='edit-about-input' placeholder='Tell us about yourself!'></textarea>
+      <form onSubmit={updateAbout} className={login.about ? "show-off" : "show-on"} >
+        <textarea max-length='400' id='edit-about-input' placeholder='Tell us about yourself!'>{login.about}</textarea>
         <button type='submit' id='submit-about'>Save</button>
       </form>
+      <h2>Posts by you:</h2>
       {renderUserPosts}
     </div>
   );

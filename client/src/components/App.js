@@ -10,7 +10,7 @@ import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 function App() {
   const [communityFilter, setCommunityFilter] = useState(1);
   const [posts, setPosts] = useState([]);
-  const [login, setLogin] = useState(null)
+  const [login, setLogin] = useState({})
   const [allPosts, setAllPosts] = useState([])
 
   function fetchPosts() {
@@ -38,14 +38,14 @@ function App() {
 
   return (
     <div>
-      <Navbar communityFilter={communityFilter} setCommunityFilter={setCommunityFilter}/>
-      <Home setLogin={setLogin} login={login} />
-      <User login={login}/>
+      <Navbar login={login} communityFilter={communityFilter} setCommunityFilter={setCommunityFilter}/>
+      <Home setLogin={setLogin} login={login}/>
       <Routes>
-        <Route exact path="/home" element={<AllPosts allPosts={allPosts} login={login}/>}/>        
+        <Route exact path="/profile" element={<User login={login}/>}/>
+        <Route exact path="/" element={<AllPosts allPosts={allPosts} login={login}/>}/>        
+        <Route path="/community" element={<Communities setCommunityFilter={setCommunityFilter} posts={posts} setPosts={setPosts} login={login}/>} element={<PostForm />} />
       </Routes>
-      <Communities communityFilter={communityFilter} posts={posts} setPosts={setPosts} login={login}/>
-      <PostForm />
+      
     </div>
   );
 }

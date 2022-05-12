@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
     def index_posts
+      # byebug
       user = find_user
       render json: user.posts
     end
