@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <Navbar communityFilter={communityFilter} setCommunityFilter={setCommunityFilter}/>
-      <Home setLogin={setLogin}/>
+      <Home setLogin={setLogin} login={login}/>
       <User />
       <Communities communityFilter={communityFilter} posts={posts} setPosts={setPosts}/>
       <PostForm />

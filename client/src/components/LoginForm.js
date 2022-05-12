@@ -4,6 +4,13 @@ function LoginForm({ setLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  function handleErrors(response) {
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+    return response;
+  }
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -17,15 +24,13 @@ function LoginForm({ setLogin }) {
         "password": password,
         "password-confirmation": password
     }),
-    })
+    }).then(handleErrors)
       .then((r) => r.json())
-      .then((user) => setLogin(user));
+      .then((user) => setLogin(user))
+      .catch(error => alert(error))
   }
 
-  function logout() {
-    fetch('/logout', { method: 'DELETE' })
-    .then(setLogin(null))
-  }
+
   return (<>
     <form onSubmit={handleSubmit}>
       <input
@@ -42,7 +47,6 @@ function LoginForm({ setLogin }) {
       />
       <button type="submit">Login</button>
     </form>
-    <button onClick={logout}>Logout</button>
     </>);
 }
 

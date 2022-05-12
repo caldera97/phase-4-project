@@ -7,7 +7,7 @@ function CreateUserForm({setLogin}) {
 
   function handleErrors(response) {
     if (!response.ok) {
-      throw Error(response.statusText);
+      throw Error(response.errors);
     }
     return response;
   }
@@ -27,7 +27,7 @@ function CreateUserForm({setLogin}) {
     }).then(handleErrors)
     .then(r => r.json())
     .then(r => alert("you may now log in!"))
-    .catch(error => alert(error) ) : alert("passwords must match!")
+    .catch(error => alert(error)) : alert("passwords must match!")
   } 
   
   return (
