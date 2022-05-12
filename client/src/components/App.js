@@ -4,11 +4,14 @@ import Navbar from "./Navbar";
 import User from "./User";
 import Communities from "./Communities";
 import PostForm from "./PostForm";
+import AllPosts from "./AllPosts";
+import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 
 function App() {
   const [communityFilter, setCommunityFilter] = useState(1);
   const [posts, setPosts] = useState([]);
   const [login, setLogin] = useState({})
+  const [allPosts, setAllPosts] = useState([])
 
   function fetchPosts() {
     fetch (`http://localhost:3000/communities/${communityFilter}`)
@@ -23,16 +26,24 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    fetch("/posts").then(r => r.json())
+    .then(posts => setAllPosts(posts)) }, []
+  );
+
   useEffect(fetchPosts, [communityFilter]);
 
   return (
-    <>
+    <Router>
       <Navbar communityFilter={communityFilter} setCommunityFilter={setCommunityFilter}/>
       <Home setLogin={setLogin} login={login}/>
       <User />
-      <Communities communityFilter={communityFilter} posts={posts} setPosts={setPosts} login={login}/>
+      <Route path="/home" exact>
+        <AllPosts allPosts={allPosts} login={login}/>
+      </Route>
+      {/* <Communities communityFilter={communityFilter} posts={posts} setPosts={setPosts} login={login}/> */}
       <PostForm />
-    </>
+    </Router>
   );
 }
 

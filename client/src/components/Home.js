@@ -10,7 +10,7 @@ function Home({setLogin, login}) {
   
   return (
     <div id='home'>
-      {login ?     <button onClick={logout}>Logout</button> : <>
+      {login ? <button onClick={logout}>Logout</button> : <>
       <LoginForm id='login-form' setLogin={setLogin}/>
       <CreateUserForm id='create-user-form' setLogin={setLogin}/>
       </>}
