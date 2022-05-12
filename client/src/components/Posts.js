@@ -23,9 +23,7 @@ function Posts({login, post}) {
 
   function handleCommentSubmit(e) {
   e.preventDefault();
-  if (login.id === undefined) {
-    alert("You must be logged in to leave a comment!")
-  } else {
+  if (login) {
     fetch("http://localhost:3000/comments", {
       method: "POST",
       headers: {
@@ -39,6 +37,8 @@ function Posts({login, post}) {
     })
       .then(resp => resp.json())
       .then(newComment => setComments((prevState) => [...prevState, newComment]));
+  } else {
+    alert("You must be logged in to leave a comment!")
   }
     e.target.reset();
   }

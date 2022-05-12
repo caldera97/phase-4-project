@@ -4,22 +4,22 @@ function PostForm({login, posts, setPosts}) {
 
   function handlePostSubmit(e) {
     e.preventDefault();
-    if (login.id === undefined) {
-      alert("You must be logged in to make a post!")
+    if (login) {
+      fetch("http://localhost:3000/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          "content": e.target.elements['post-input'].value,
+          "user_id": login.id,
+          "community_id": e.target.elements['new-post-community'].value
+        }),
+      })
+        .then(resp => resp.json())
+        .then(newPost => setPosts((prevState) => [...prevState, newPost]));
     } else {
-    fetch("http://localhost:3000/posts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        "content": e.target.elements['post-input'].value,
-        "user_id": login.id,
-        "community_id": e.target.elements['new-post-community'].value
-      }),
-    })
-      .then(resp => resp.json())
-      .then(newPost => setPosts((prevState) => [...prevState, newPost]));
+      alert("You must be logged in to make a post!")
   }
     e.target.reset();
 }
