@@ -6,7 +6,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_post_not_found
     end
 
     def index 
-        render json: Post.all
+        render json: Post.all.reverse
     end
 
     def show
