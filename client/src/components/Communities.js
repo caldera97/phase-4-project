@@ -1,21 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import Posts from "./Posts"
 
-function Communities({communityFilter, posts, setPosts}) {
+function Communities({login, communityFilter, posts, setPosts}) {
 
-  const [comments, setComments] = useState([]);
-
-  function fetchComments() {
-    fetch ('http://localhost:3000/comments')
-    .then(resp => resp.json())
-    .then(commentData => setComments(commentData))
-}
-
-useEffect(fetchComments, []);
-  
-const renderPosts = posts
-  .map((post) => (<Posts key={post.id} post={post} comments={comments} setComments={setComments}/>
-));
+  const renderPosts = posts
+    .map((post) => (<Posts key={post.id} post={post} login={login}/>
+  ));
 
   return (
     <div id="communities">

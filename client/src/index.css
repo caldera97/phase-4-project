@@ -49,18 +49,26 @@ body {
   border-bottom: 1px solid white;
 }
 
-button {
+button, select {
   border-radius: 5px;
   border: none;
   font-family: 'Montserrat', sans-serif;
   padding: 5px;
 }
 
-select {
+#submit-comment {
+  color: black;
   border-radius: 5px;
   border: none;
   font-family: 'Montserrat', sans-serif;
   padding: 5px;
+}
+
+#comment-input {
+  border-radius: 5px;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  margin: 3px;
 }
 
 #post-content {
@@ -85,10 +93,17 @@ select {
   width: 500px;
 }
 
-.comments-off {
+.show-off {
   display: none;
 }
 
-.comments-on {
+.show-on {
   color: white;
+}
+
+#comment-input {
+  width: 80%;
+  height: 2em;
+  line-height: 1em;
+  color: rgb(20, 20, 20);
 }
