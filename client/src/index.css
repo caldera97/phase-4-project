@@ -104,7 +104,7 @@ button, select {
   border-top-right-radius: 5px;
 }
 
-#communities {
+.communities {
   display: grid;
   grid-template-columns: 1;
   text-align: center;

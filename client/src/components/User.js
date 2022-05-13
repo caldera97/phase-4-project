@@ -12,7 +12,7 @@ function User({login, postEditing, setPostEditing}) {
     .then(userPosts => setUserPosts(userPosts));
   }
 
-  useEffect(fetchUserPosts, [])
+  useEffect(() => fetchUserPosts, [login])
 
   function updateAbout(e) {
     e.preventDefault();

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_09_170125) do
+ActiveRecord::Schema.define(version: 2022_05_12_193031) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 2022_05_09_170125) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "community_rosters", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "community_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["community_id"], name: "index_community_rosters_on_community_id"
+    t.index ["user_id", "community_id"], name: "index_community_rosters_on_user_id_and_community_id", unique: true
+    t.index ["user_id"], name: "index_community_rosters_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -58,6 +68,8 @@ ActiveRecord::Schema.define(version: 2022_05_09_170125) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "community_rosters", "communities"
+  add_foreign_key "community_rosters", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "communities"

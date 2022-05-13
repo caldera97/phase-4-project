@@ -6,7 +6,7 @@ class CommunitiesController < ApplicationController
 
     def show 
         community = find_community
-        render json: community.posts
+        render json: community.posts.reverse
     end
 
     private 

@@ -2,17 +2,24 @@ import React, {useState, useEffect} from "react";
 import Home from "./Home";
 import Navbar from "./Navbar";
 import User from "./User";
-import Communities from "./Communities";
-import AllPosts from "./AllPosts";
+import Community1 from "./Community1";
+import Community2 from "./Community2";
+import Community3 from "./Community3";
+import Community4 from "./Community4";
 import PostForm from "./PostForm";
-import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
+import AllPosts from "./AllPosts";
+import {Routes,Route} from "react-router-dom";
 
 function App() {
   const [communityFilter, setCommunityFilter] = useState(1);
   const [posts, setPosts] = useState([]);
-  const [login, setLogin] = useState(null)
+  const [login, setLogin] = useState([])
   const [allPosts, setAllPosts] = useState([])
   const [postEditing, setPostEditing] = useState(false)
+
+  function setTheCommunity (community) {
+    setCommunityFilter(community)
+  }
 
   function fetchPosts() {
     fetch (`http://localhost:3000/communities/${communityFilter}`)
@@ -44,10 +51,12 @@ function App() {
       <Routes>
         <Route exact path="/profile" element={<User login={login} postEditing={postEditing} setPostEditing={setPostEditing}/>}/>
         <Route exact path="/" element={<AllPosts allPosts={allPosts} login={login}/>}/>        
-        <Route path="/community" element={<Communities setCommunityFilter={setCommunityFilter} posts={posts} setPosts={setPosts} login={login}/>} />
+        <Route path="/community/1" element={<Community1 login={login}/>}/>
+        <Route path="/community/2" element={<Community2 login={login}/>}/>
+        <Route path="/community/3" element={<Community3 login={login}/>}/>
+        <Route path="/community/4" element={<Community4 login={login}/>}/>
         <Route exact path="/new_post" element={<PostForm login={login} posts={posts} setPosts={setPosts}/>}/>
       </Routes>
-      
     </div>
   );
 }
