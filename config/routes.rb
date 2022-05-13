@@ -9,6 +9,11 @@ Rails.application.routes.draw do
 
   get "/posts/:id/comments", to: "posts#index_comments"
 
+  get "/users/:id/posts", to: "users#index_posts"
+
+  
+
+
   # Routing logic: fallback requests for React Router.vvvv
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
   # Leave this here to help deploy your app later!^^^^

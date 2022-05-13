@@ -21,6 +21,7 @@ function Communities({login, setCommunityFilter, posts, setPosts}) {
 
   const renderPosts = filteredList.map((post) => (<FilteredPosts key={post.id} post={post} login={login}/>
   ));
+  
 
   return (
     <div className="communities">

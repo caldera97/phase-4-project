@@ -11,7 +11,6 @@ function LoginForm({ setLogin }) {
     return response;
   }
 
-
   function handleSubmit(e) {
     e.preventDefault();
     fetch("/login", {
@@ -30,23 +29,23 @@ function LoginForm({ setLogin }) {
       .catch(error => alert(error))
   }
 
-
-  return (<>
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={username}
-        placeholder="username"
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="text"
-        value={password}
-        placeholder="password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="submit">Login</button>
-    </form>
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={username}
+          placeholder="username"
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="password"
+          value={password}
+          placeholder="password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Login</button>
+      </form>
     </>);
 }
 

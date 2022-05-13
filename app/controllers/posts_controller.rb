@@ -38,7 +38,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_post_not_found
     end
 
     def post_params
-        params.permit[:user_id, :community_id, :content]
+        params.permit(:user_id, :community_id, :content)
     end
 
     def render_post_not_found
