@@ -12,35 +12,35 @@ Community.create(community_name: "Community 4", description: "This is the 4th co
 
 puts "seeding users"
 
-User.create(username: "user1", password_digest: BCrypt::Password.create('password'))
+User.create(username: "user1", password_digest: BCrypt::Password.create('password'), about: "about")
 
-User.create(username: "user2", password_digest: BCrypt::Password.create('password'))
+User.create(username: "user2", password_digest: BCrypt::Password.create('password'), about: "about")
 
-User.create(username: "user3", password_digest: BCrypt::Password.create('password'))
+User.create(username: "user3", password_digest: BCrypt::Password.create('password'), about: "about")
 
-User.create(username: "user4", password_digest: BCrypt::Password.create('password'))
+User.create(username: "user4", password_digest: BCrypt::Password.create('password'), about: "about")
 
-User.create(username: "user5", password_digest: BCrypt::Password.create('password'))
+User.create(username: "user5", password_digest: BCrypt::Password.create('password'), about: "about")
 
-User.create(username: "user6", password_digest: BCrypt::Password.create('password'))
+User.create(username: "user6", password_digest: BCrypt::Password.create('password'), about: "about")
 
-User.create(username: "user7", password_digest: BCrypt::Password.create('password'))
+User.create(username: "user7", password_digest: BCrypt::Password.create('password'), about: "about")
 
-User.create(username: "user8", password_digest: BCrypt::Password.create('password'))
+User.create(username: "user8", password_digest: BCrypt::Password.create('password'), about: "about")
 
-User.create(username: "user9", password_digest: BCrypt::Password.create('password'))
+User.create(username: "user9", password_digest: BCrypt::Password.create('password'), about: "about")
 
-User.create(username: "user10", password_digest: BCrypt::Password.create('password'))
+User.create(username: "user10", password_digest: BCrypt::Password.create('password'), about: "about")
 
-User.create(username: "user11", password_digest: BCrypt::Password.create('password'))
+User.create(username: "user11", password_digest: BCrypt::Password.create('password'), about: "about")
 
-User.create(username: "user12", password_digest: BCrypt::Password.create('password'))
+User.create(username: "user12", password_digest: BCrypt::Password.create('password'), about: "about")
 
-User.create(username: "user13", password_digest: BCrypt::Password.create('password'))
+User.create(username: "user13", password_digest: BCrypt::Password.create('password'), about: "about")
 
-User.create(username: "user14", password_digest: BCrypt::Password.create('password'))
+User.create(username: "user14", password_digest: BCrypt::Password.create('password'), about: "about")
 
-User.create(username: "user15", password_digest: BCrypt::Password.create('password'))
+User.create(username: "user15", password_digest: BCrypt::Password.create('password'), about: "about")
 
 puts "seeding posts"
 

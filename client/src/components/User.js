@@ -11,7 +11,7 @@ function User({login}) {
     .then(userPosts => setUserPosts(userPosts));
   }
 
-  useEffect(fetchUserPosts, [])
+  useEffect(() => fetchUserPosts, [login])
 
   function updateAbout(e) {
     e.preventDefault();

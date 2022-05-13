@@ -8,12 +8,12 @@ import Community3 from "./Community3";
 import Community4 from "./Community4";
 import PostForm from "./PostForm";
 import AllPosts from "./AllPosts";
-import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
+import {Routes,Route} from "react-router-dom";
 
 function App() {
   const [communityFilter, setCommunityFilter] = useState(1);
   const [posts, setPosts] = useState([]);
-  const [login, setLogin] = useState(null)
+  const [login, setLogin] = useState([])
   const [allPosts, setAllPosts] = useState([])
 
   function setTheCommunity (community) {
