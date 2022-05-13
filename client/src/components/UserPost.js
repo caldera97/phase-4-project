@@ -9,7 +9,8 @@ function UserPost({login, userPost, fetchUserPosts, handleDelete, postEditing, s
     fetch(`http://localhost:3000/posts/${userPost.id}`, {
       method: "DELETE"      
     })
-    fetchUserPosts();
+    // .then((resp) => resp.json())
+    .then((resp) => fetchUserPosts())
   }
   
   function togglePostEditing(e) {
@@ -18,7 +19,6 @@ function UserPost({login, userPost, fetchUserPosts, handleDelete, postEditing, s
 
   function updatePost(e) {
     e.preventDefault();
-    console.log(e.target)
     fetch(`http://localhost:3000/posts/${userPost.id}`, {
       method: "PATCH",
       headers: {

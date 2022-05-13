@@ -13,7 +13,7 @@ import {Routes,Route} from "react-router-dom";
 function App() {
   const [communityFilter, setCommunityFilter] = useState(1);
   const [posts, setPosts] = useState([]);
-  const [login, setLogin] = useState([])
+  const [login, setLogin] = useState({about: null})
   const [allPosts, setAllPosts] = useState([])
   const [postEditing, setPostEditing] = useState(false)
 
@@ -49,7 +49,7 @@ function App() {
       <Navbar login={login} setLogin={setLogin} communityFilter={communityFilter} setCommunityFilter={setCommunityFilter}/>
       <Home setLogin={setLogin} login={login}/>
       <Routes>
-        <Route exact path="/profile" element={<User login={login} postEditing={postEditing} setPostEditing={setPostEditing}/>}/>
+        <Route exact path="/profile" element={<User login={login} setLogin={setLogin} postEditing={postEditing} setPostEditing={setPostEditing}/>}/>
         <Route exact path="/" element={<AllPosts allPosts={allPosts} login={login}/>}/>        
         <Route path="/community/1" element={<Community1 login={login}/>}/>
         <Route path="/community/2" element={<Community2 login={login}/>}/>

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import UserPost from "./UserPost";
 
-function User({login, postEditing, setPostEditing}) {
+function User({login, setLogin, postEditing, setPostEditing}) {
   const [userPosts, setUserPosts] = useState([])
   const [userAbout, setUserAbout] = useState({})
   const [editing, setEditing] = useState(false)
@@ -9,14 +9,17 @@ function User({login, postEditing, setPostEditing}) {
   function fetchUserPosts() {
     fetch(`http://localhost:3000/users/${login.id}/posts`)
     .then(response => response.json())
-    .then(userPosts => setUserPosts(userPosts));
-  }
+    .then(userPosts => {
+      if (!userPosts.error) {
+      setUserPosts(userPosts)
+      }
+    })
+    }
 
-  useEffect(() => fetchUserPosts, [login])
+  useEffect(fetchUserPosts, [login])
 
   function updateAbout(e) {
     e.preventDefault();
-    setEditing(false);
     fetch(`http://localhost:3000/users/${login.id}`, {
       method: "PATCH",
       headers: {
@@ -28,12 +31,13 @@ function User({login, postEditing, setPostEditing}) {
       }),
     })
     .then(resp => resp.json())
-    .then(newAbout => console.log(newAbout))
+    .then(newAbout => setLogin(newAbout))
     e.target.reset();
+    setEditing(!editing);
   }
 
   function toggleEdit() {
-    setEditing(true)
+    setEditing(!editing)
   }
   
   const renderUserPosts = userPosts

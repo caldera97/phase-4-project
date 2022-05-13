@@ -44,8 +44,6 @@ function Posts({login, post}) {
     e.target.reset();
   }
 
-  console.log(post)
-
   return (
     <div id="posts">
       <Link to={`/community/${post.community.id}`}>{post.community.community_name}</Link>
