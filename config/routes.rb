@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :community_rosters
   resources :communities
   resources :likes
   resources :comments

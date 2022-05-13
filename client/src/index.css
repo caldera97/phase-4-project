@@ -78,7 +78,7 @@ button, select {
   padding: 10px;
 }
 
-#communities {
+.communities {
   display: grid;
   grid-template-columns: 1;
   text-align: center;

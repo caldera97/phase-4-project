@@ -53,3 +53,7 @@ puts "seeding likes"
 puts "seeding comments"
 
 60.times {Comment.create(content: Faker::Lorem.paragraph, user_id: rand(User.count), post_id: rand(Post.count))}
+
+puts "seeding community joins"
+
+30.times {CommunityRoster.create(user_id: rand(User.count), community_id: rand(Community.count))}

@@ -1,0 +1,2 @@
+class CommunityRostersController < ApplicationController
+end

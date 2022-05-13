@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Comments from "./Comments"
+import {Link} from "react-router-dom"
 
 function Posts({login, post}) {
   const [style, setStyle] = useState("false")
@@ -36,12 +37,13 @@ function Posts({login, post}) {
     }),
   })
     .then(resp => resp.json())
-    .then(newComment => setComments((prevState) => [... prevState, newComment]));
+    .then(newComment => setComments((prevState) => [...prevState, newComment]));
 
   }
   
   return (
     <div id="posts">
+      <Link to={`/community/${post.community.id}`}>{post.community.community_name}</Link>
       <p id='post-content'>{post.content}</p>
       <p id='post-author'>- {post.user.username}</p>
       <button id="comments-button" onClick={toggleComments}>Comments</button>
