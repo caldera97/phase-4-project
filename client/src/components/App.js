@@ -13,7 +13,7 @@ import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 function App() {
   const [communityFilter, setCommunityFilter] = useState(1);
   const [posts, setPosts] = useState([]);
-  const [login, setLogin] = useState({})
+  const [login, setLogin] = useState(null)
   const [allPosts, setAllPosts] = useState([])
 
   function setTheCommunity (community) {
