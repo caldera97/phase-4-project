@@ -5,14 +5,9 @@ import {Link} from 'react-router-dom'
 
 function Home({setLogin, login}) {
   
-  function logout() {
-    fetch('/logout', { method: 'DELETE' })
-    .then(setLogin(null))
-  }
-  
   return (
     <div id='home'>
-      {login ? <button onClick={logout}><Link to="/">Logout</Link></button> : <>
+      {login ? <button><Link to="/new_post">Create New Post</Link></button> : <>
       <LoginForm id='login-form' setLogin={setLogin}/>
       <CreateUserForm id='create-user-form' setLogin={setLogin}/>
       </>}

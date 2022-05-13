@@ -3,16 +3,37 @@ body {
   background-color: white;
   background: url(https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80) no-repeat center center fixed;
   -webkit-background-size: cover;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Lexend Deca', sans-serif;
   font-weight: bolder;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 #navbar {
-  display: flex;
-  justify-content: space-evenly;
+  background: rgb(250,125,97);
+  background: radial-gradient(circle, rgba(250,125,97,0.9) 0%, rgba(255,46,87,0.8) 50%, rgba(131,58,180,0.7) 100%);
+  border-bottom: groove 10px rgb(95, 30, 140, 0.8);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-items: center;
   align-items: center;
+}
+
+#nav-buttons {
+  grid-column: 2 / 4;
+}
+
+#user-buttons {
+  grid-column: 10 / 12;
+}
+
+#main-heading {
+  grid-column: 4 / 10;
+  font-family: 'Monoton', cursive;
+}
+
+#main-heading > #title {
+  font-size: 60px;
 }
 
 #username {
@@ -20,14 +41,16 @@ body {
   color: white;
 }
 
-#nav-buttons, #main-heading, #user-buttons {
-  margins-left: 0px;
-  margins-right: 0px;
+button.nav-button, button.show-on {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #home {
   display: flex;
   justify-content: space-evenly;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 #create-user-form {
@@ -48,11 +71,13 @@ body {
 
 #comment-content {
   font-size: small;
+  border-top: 1px solid rgba(75, 0, 130, 1);
 }
 
 #comment-author {
   font-size: small;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgba(75, 0, 130, 1);
+  padding-bottom: 10px;
 }
 
 button, select {
@@ -64,22 +89,19 @@ button, select {
 }
 
 #comments-button {
-  font-size: x-small;
+  font-size: smaller;
   color:rgb(20, 20, 20)
-}
-
-#comment-input {
-  border-radius: 5px;
-  border: none;
-  font-family: 'Montserrat', sans-serif;
-  margin: 3px;
 }
 
 #post-content {
   font-size: larger;
-  border-radius: 5px;
   background-color: rgb(255, 246, 247, 0.6);
-  padding: 10px;
+  margin-top: 0px;
+  margin-bottom: 5px;  
+  padding: 20px;
+  width: auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 #communities {
@@ -89,11 +111,17 @@ button, select {
   justify-content: center;
 }
 
+#search-field {
+  display: block;
+}
+
 #posts {
-  background-color: rgba(204, 138, 99, 0.6);
+  border: 1px solid rgb(75, 0, 130, 1);
+  box-shadow: 0px 0px 2px 1px rgba(75, 0, 130, 1);
+  background-color: rgba(189, 89, 67, 0.8);
   border-radius: 5px;
-  padding: 10px;
-  margin: 20px;
+  padding-bottom: 5px;
+  margin: 10px;
   width: 500px;
 }
 
@@ -122,9 +150,14 @@ button, select {
   height: 2em;
   line-height: 1em;
   color: rgb(20, 20, 20);
+  border-radius: 5px;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  margin: 3px;
 }
 
 #post-author {
+  margin: 10px;
   color: white;
 }
 
@@ -140,6 +173,17 @@ button, select {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+#post-bottom {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#post-bottom > button {
+  height: fit-content;
+  background: none;
 }
 
 #post-input, #new-post-community, #submit-post {
@@ -163,4 +207,74 @@ button, select {
 #user-info {
   color: white;
   text-align: center;
+  display: grid;
+  grid-template-columns: 100%;
+  justify-items: center;
+  align-items: stretch;
+  margin-top: 80px;
+}
+
+#user-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: 0px 0px 3px 3px rgb(38, 3, 63);
+  padding: 0px;
+  border-radius: 15px;
+}
+
+#user-posts {
+  grid-column: 1 / span 2;
+}
+
+#ind-user-posts {
+  background-color: rgb(105, 1, 97, 0.9);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  width: 500px;
+  margin: 10px;
+  padding-bottom: 10px;
+}
+
+#ind-user-posts > p {
+  font-size: larger;
+}
+
+#user-and-edit-button {
+  background: rgb(95,30,140);
+  width: 350px;
+  display: grid;
+  border-right: 1px solid rgb(38, 3, 63, 0.7);
+  justify-items: center;
+  align-items: center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+#about-me {
+  background: rgb(131,58,180);
+  width: 350px;
+  display: grid;
+  padding-bottom: 20px;
+  border-left: 1px solid rgba(38, 3, 63, 0.7);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+#edit-about-input {
+  width: 80%;
+}
+
+#submit-about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#user-and-edit-button > button {
+  width: fit-content;
+  height: fit-content;
+}
+
+#edit-about-button {
+  color: black;
 }

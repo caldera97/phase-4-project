@@ -43,21 +43,25 @@ function Posts({login, post}) {
     e.target.reset();
   }
 
+  console.log(post)
 
   return (
     <div id="posts">
       <p id='post-content'>{post.content}</p>
-      <p id='post-author'>- {post.user.username}</p>
-      <button id="comments-button" onClick={toggleComments}>Show/Hide Comments</button>
+      <div id='post-bottom'>
+        <p id='post-author'>by {post.user.username}</p>
+        <button id="comments-button" onClick={toggleComments}>Show/Hide Comments ⇩</button>
+        <p>{post.likes}</p>
+      </div>
       <div className={style ? "show-off" : "show-on"}>
         {renderComments}
       </div>
       <form onSubmit={handleCommentSubmit}>
         <input name='comment-input' type='text' className={style ? "show-off" : "comment-field-show"} placeholder='Leave a comment!'/>
-        <button type='submit' className={style ? "show-off" : "comment-button-show"} id='submit-comment'>Post</button>
+        <button type='submit' className={style ? "show-off" : "comment-button-show"}>Post</button>
       </form>
     </div>
   );
 }
-
+ 
 export default Posts; 
