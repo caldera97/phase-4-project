@@ -4,7 +4,9 @@ function Navbar({setCommunityFilter, login, setLogin}) {
 
   function logout() {
     fetch('/logout', { method: 'DELETE' })
-    .then(setLogin(null))
+    .then(setLogin({
+      about: null,
+      id: null}))
   }
   
   return (

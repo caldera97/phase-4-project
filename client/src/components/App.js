@@ -13,7 +13,9 @@ import {Routes,Route} from "react-router-dom";
 function App() {
   const [communityFilter, setCommunityFilter] = useState(1);
   const [posts, setPosts] = useState([]);
-  const [login, setLogin] = useState({about: null})
+  const [login, setLogin] = useState({
+    about: null,
+    id: null})
   const [allPosts, setAllPosts] = useState([])
   const [postEditing, setPostEditing] = useState(false)
 
