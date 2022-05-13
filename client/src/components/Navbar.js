@@ -16,10 +16,10 @@ function Navbar({setCommunityFilter, login, setLogin}) {
       <h1 id="title">Title</h1>
       </div>
       <div id="user-buttons">
-        <span className={login ? "show-on" : "show-off"}>
+        <span className={login.id ? "show-on" : "show-off"}>
           <p id='username'>Welcome, {login ? login.username : null}</p>
           <button className="navbutton"><Link to="/profile">My Profile</Link></button>
-          <button className={login ? "show-on" : "show-off"} onClick={logout}><Link to="/">Logout</Link></button>
+          <button className={login.id ? "show-on" : "show-off"} onClick={logout}><Link to="/">Logout</Link></button>
         </span>
       </div>
     </div>
