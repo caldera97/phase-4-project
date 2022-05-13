@@ -13,7 +13,7 @@ function Navbar({setCommunityFilter, login, setLogin}) {
         <button><Link to="/">Home</Link></button>
       </div>
       <div id="main-heading">
-      <h1 id="title">Really Cool Project Name</h1>
+      <h1 id="title">Title</h1>
       </div>
       <div id="user-buttons">
         <span className={login ? "show-on" : "show-off"}>
